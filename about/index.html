@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ch-ZH">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <title>about</title>
+    <meta name="keywords" content="Linux,Java,Android">
+    <meta name="description" content="咸鱼一条">
+    <meta name="author" content="LiuYuHong0324">
+    <link rel="stylesheet" href="/style/diaspora.css">
+    <link rel="icon" type="image/png" href="/assets/icon.png">
+</head>
+
+
+<body>
+<style>
+  .article-wapper .content:before{
+    background-color: #fff;
+  }
+  
+  #top .archive-logo {
+    background-image: url("/assets/images/archive-logo.png") !important;
+  }
+</style>
+<div id="top">
+  <a class="archive-logo" href="/">刘裕洪的Blog</a>
+</div>
+
+<div class="article-wapper">
+  <!-- 文章正文 -->
+  <div class="content">
+    
+  </div>
+
+  <div id="comment"></div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.DIASPORA_CONFIG = {
+        leancloud_appId: '6lPpwY0GtV4K4rlp7OaFgTvO-gzGzoHsz',
+        leancloud_appKey: 'q8s34qqPbmStIbOG06oAuvPr',
+    }
+</script>
+<script src="/lib/utils.js"></script>
+<script src="/lib/pageLoader.js"></script>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="/lib/leancloud.js"></script>
+<script>
+;(function(window, undefined){
+
+   var leanCloudInit = function(pageId) {
+    // 初始化Valine评论.
+    leancloud.initValine(pageId);
+    // 先添加文章阅读数然后拿到数据,
+    leancloud.addCount('read', pageId, function(status, err){
+      if(status){
+        renderComment(pageId);
+      }else{
+        console.error(err);
+      }
+    });
+  };
+
+  var pageId = decodeURIComponent(location.pathname);
+  leanCloudInit(pageId);
+}(window));
+</script>
+
+</body>
+</html>
